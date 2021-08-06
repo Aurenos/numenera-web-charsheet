@@ -1,13 +1,49 @@
-body {
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
+
+.sheetInput {
+  @apply leading-tight;
+  @apply text-gray-700;
+  @apply border-0;
+  @apply rounded;
+  @apply shadow;
+  @apply outline-none;
+  @apply appearance-none;
+  @apply placeholder-gray-300;
+  @apply bg-white;
+  @apply px-3;
+  @apply py-2;
+}
+
+.basicInfoInput {
+  @apply sheetInput;
+  @apply w-full;
+  @apply text-center;
+  @apply text-lg;
+}
+
+.sheetInput:focus {
+  @apply ring-2;
+}
+
+.statPoolInputBasic {
+  @apply sheetInput;
+  @apply text-center;
+  @apply transform;
+  @apply bg-transparent;
+  @apply border-0;
+  @apply shadow-none;
+  @apply outline-none;
+}
+
+@tailwind utilities;

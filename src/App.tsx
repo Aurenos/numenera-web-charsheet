@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, Fragment } from 'react';
+import BasicInfo from './components/BasicInfo';
+import CharacterSheet from './lib/CharacterSheet';
+import StatPoolField from './components/StatPoolField';
+import { StatPoolType } from './lib/StatPool';
 
-function App() {
+const App = () => {
+  const [sheet, setSheet] = useState<CharacterSheet>(new CharacterSheet());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <div className="container grid grid-cols-4 gap-4 p-4 mx-auto bg-gray-100">
+        <BasicInfo sheet={sheet} updateSheet={setSheet} />
+        <div className="grid grid-cols-1 col-span-2 grid-rows-3 gap-1 text-center border-2 border-gray-300 rounded">
+          <StatPoolField
+            fieldName="Might"
+            field={sheet.might}
+            handleChange={(p) => setSheet({ ...sheet, might: p })}
+            poolType={StatPoolType.MIGHT}
+          />
+          <StatPoolField
+            fieldName="Speed"
+            field={sheet.speed}
+            handleChange={(p) => setSheet({ ...sheet, speed: p })}
+            poolType={StatPoolType.SPEED}
+          />
+          <StatPoolField
+            fieldName="Intellect"
+            field={sheet.intellect}
+            handleChange={(p) => setSheet({ ...sheet, intellect: p })}
+            poolType={StatPoolType.INTELLECT}
+          />
+        </div>
+      </div>
+    </Fragment>
   );
-}
+};
 
 export default App;
