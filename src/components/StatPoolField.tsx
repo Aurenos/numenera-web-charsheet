@@ -49,11 +49,11 @@ const StatPoolField = (props: IStatPoolProps) => {
           <input
             className="border-b-2 border-l-2 border-r-2 statPoolInput rounded-bl-xl"
             type="number"
-            min="0"
+            min="1"
             value={field.max}
             onChange={(e) => {
               let newMax = parseInt(e.currentTarget.value);
-              let current = clamp(field.current, 0, newMax);
+              let current = clamp(field.current, 1, newMax);
               handleChange({ ...field, max: newMax, current: current });
             }}
           />
