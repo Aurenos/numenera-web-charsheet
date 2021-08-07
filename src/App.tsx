@@ -4,6 +4,7 @@ import SkillRadioBtn from './components/SkillRadioBtn';
 import StatPools from './components/StatPools';
 import CharacterSheet from './lib/CharacterSheet';
 import Skill, { SkillLevel } from './lib/Skill';
+import { TrashIcon, PlusIcon } from '@heroicons/react/solid';
 
 const App = () => {
   const [sheet, setSheet] = useState<CharacterSheet>((): CharacterSheet => {
@@ -44,61 +45,65 @@ const App = () => {
                       setSheet({ ...sheet, skills });
                     }}
                   />
-                  <SkillRadioBtn
-                    index={index}
-                    skill={skill}
-                    level={SkillLevel.TRAINED}
-                    label="T"
-                    updateSkill={(sk) => {
-                      let skills = sheet.skills;
-                      skills[index] = sk;
-                      setSheet({ ...sheet, skills });
-                    }}
-                  />
-                  <SkillRadioBtn
-                    index={index}
-                    skill={skill}
-                    level={SkillLevel.SPECIALIZED}
-                    label="S"
-                    updateSkill={(sk) => {
-                      let skills = sheet.skills;
-                      skills[index] = sk;
-                      setSheet({ ...sheet, skills });
-                    }}
-                  />
-                  <SkillRadioBtn
-                    index={index}
-                    skill={skill}
-                    level={SkillLevel.INABILITY}
-                    label="I"
-                    updateSkill={(sk) => {
-                      let skills = sheet.skills;
-                      skills[index] = sk;
-                      setSheet({ ...sheet, skills });
-                    }}
-                  />
-
+                  <div className="flex flex-row mx-4">
+                    <SkillRadioBtn
+                      index={index}
+                      skill={skill}
+                      level={SkillLevel.TRAINED}
+                      label="T"
+                      updateSkill={(sk) => {
+                        let skills = sheet.skills;
+                        skills[index] = sk;
+                        setSheet({ ...sheet, skills });
+                      }}
+                    />
+                    <SkillRadioBtn
+                      index={index}
+                      skill={skill}
+                      level={SkillLevel.SPECIALIZED}
+                      label="S"
+                      updateSkill={(sk) => {
+                        let skills = sheet.skills;
+                        skills[index] = sk;
+                        setSheet({ ...sheet, skills });
+                      }}
+                    />
+                    <SkillRadioBtn
+                      index={index}
+                      skill={skill}
+                      level={SkillLevel.INABILITY}
+                      label="I"
+                      updateSkill={(sk) => {
+                        let skills = sheet.skills;
+                        skills[index] = sk;
+                        setSheet({ ...sheet, skills });
+                      }}
+                    />
+                  </div>
                   <button
-                    className="p-2 border"
-                    onClick={() => {
+                    className="h-10 p-2 text-gray-500 bg-gray-100 border border-gray-400 rounded shadow outline-none hover:bg-gray-200 focus:text-white focus:bg-gray-400 "
+                    onClick={(e) => {
                       let skills = sheet.skills;
                       skills.splice(index, 1);
                       setSheet({ ...sheet, skills });
+                      e.currentTarget.blur();
                     }}>
-                    Remove
+                    <TrashIcon className="w-6 h-6" />
                   </button>
                 </div>
               );
             })}
           </div>
           <button
-            className="w-1/4 p-2 mx-auto mb-2 border border-black"
-            onClick={() => {
+            className="inline-flex items-center px-10 py-2 mx-auto mb-2 align-middle bg-gray-100 border border-gray-400 rounded shadow outline-none hover:bg-gray-200 focus:text-white focus:bg-blue-300 focus:outline-none"
+            onClick={(e) => {
               let skills = sheet.skills;
               skills.push(new Skill());
               setSheet({ ...sheet, skills });
+              e.currentTarget.blur();
             }}>
-            Add Skill
+            <PlusIcon className="w-6 h-6 mr-2 text-green-500" />
+            <span className="font-semibold ">Add Skill</span>
           </button>
         </div>
       </div>
