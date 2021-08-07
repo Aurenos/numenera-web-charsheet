@@ -7,16 +7,17 @@ interface IBasicInfoProps {
   handleChange: (text: string) => void;
   className?: string;
   max?: number;
+  min?: number;
 }
 
 const BasicInfoField = (props: IBasicInfoProps) => {
-  const { placeholder, field, type, handleChange, className, max } = props;
+  const { placeholder, field, type, handleChange, className, max, min } = props;
   return (
     <div className={className || ''}>
       <input
         className="basicInfoInput"
         type={type}
-        min="0"
+        min={min || '0'}
         max={max || ''}
         placeholder={placeholder}
         value={field || ''}

@@ -56,6 +56,7 @@ const BasicInfo = (props: BasicInfoProps) => {
             placeholder="Tier"
             type="number"
             max={6}
+            min={1}
             field={sheet.tier.toString()}
             handleChange={(str) =>
               updateSheet({ ...sheet, tier: parseInt(str) })
@@ -67,6 +68,8 @@ const BasicInfo = (props: BasicInfoProps) => {
           <BasicInfoField
             placeholder="Effort"
             type="number"
+            max={6}
+            min={1}
             field={sheet.effort.toString()}
             handleChange={(str) =>
               updateSheet({ ...sheet, effort: parseInt(str) })
