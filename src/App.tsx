@@ -1,11 +1,22 @@
-import { useState, Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import BasicInfo from './components/BasicInfo';
 import CharacterSheet from './lib/CharacterSheet';
 import StatPoolField from './components/StatPoolField';
 import { StatPoolType } from './lib/StatPool';
 
 const App = () => {
-  const [sheet, setSheet] = useState<CharacterSheet>(new CharacterSheet());
+  const [sheet, setSheet] = useState<CharacterSheet>((): CharacterSheet => {
+    const existingSheet = window.localStorage.getItem('characterSheet');
+    if (existingSheet) {
+      return JSON.parse(existingSheet);
+    } else {
+      return new CharacterSheet();
+    }
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('characterSheet', JSON.stringify(sheet));
+  });
 
   return (
     <Fragment>
