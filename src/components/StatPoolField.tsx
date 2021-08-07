@@ -1,6 +1,6 @@
-import internal from 'stream';
 import StatPool from '../lib/StatPool';
 import { StatPoolType } from '../lib/StatPool';
+import { clamp } from '../helpers';
 
 interface IStatPoolProps {
   fieldName: string;
@@ -18,10 +18,6 @@ function getMaxBG(poolType: StatPoolType): string {
     case StatPoolType.INTELLECT:
       return 'bg-blue-300';
   }
-}
-
-function clamp(n: number, min: number, max: number): number {
-  return Math.min(Math.max(n, min), max);
 }
 
 const StatPoolField = (props: IStatPoolProps) => {

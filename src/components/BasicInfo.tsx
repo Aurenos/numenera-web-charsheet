@@ -55,6 +55,7 @@ const BasicInfo = (props: BasicInfoProps) => {
           <BasicInfoField
             placeholder="Tier"
             type="number"
+            max={6}
             field={sheet.tier.toString()}
             handleChange={(str) =>
               updateSheet({ ...sheet, tier: parseInt(str) })
