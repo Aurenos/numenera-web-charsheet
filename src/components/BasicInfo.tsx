@@ -1,12 +1,12 @@
 import BasicInfoField from './BasicInfoField';
 import CharacterSheet from '../lib/CharacterSheet';
 
-interface BasicInfoProps {
+interface IBasicInfoProps {
   sheet: CharacterSheet;
   updateSheet: (s: CharacterSheet) => void;
 }
 
-const BasicInfo = (props: BasicInfoProps) => {
+const BasicInfo = (props: IBasicInfoProps) => {
   const { sheet, updateSheet } = props;
 
   return (
