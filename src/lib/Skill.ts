@@ -1,3 +1,9 @@
+export enum SkillLevel {
+  TRAINED,
+  SPECIALIZED,
+  INABILITY,
+}
+
 class Skill {
   name: string;
   level: SkillLevel;
@@ -6,12 +12,6 @@ class Skill {
     this.name = name;
     this.level = level;
   }
-}
-
-export enum SkillLevel {
-  TRAINED,
-  SPECIALIZED,
-  INABILITY,
 }
 
 export default Skill;

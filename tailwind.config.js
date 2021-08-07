@@ -5,6 +5,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      serif: ['Lora', 'serif'],
       header: ['Cinzel Decorative'],
     },
   },
