@@ -49,7 +49,7 @@ const BasicInfo = (props: BasicInfoProps) => {
           handleChange={(str) => updateSheet({ ...sheet, focus: str })}
         />
       </div>
-      <div className="grid grid-cols-3 gap-2 pt-2 mt-4 border-t-2">
+      <div className="grid grid-cols-3 gap-2 pt-2 mt-4 border-t border-gray-200">
         <div className="flex flex-col">
           <span className="mx-auto sheetLabel">Tier</span>
           <BasicInfoField

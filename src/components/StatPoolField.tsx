@@ -1,3 +1,4 @@
+import internal from 'stream';
 import StatPool from '../lib/StatPool';
 import { StatPoolType } from '../lib/StatPool';
 
@@ -19,6 +20,10 @@ function getMaxBG(poolType: StatPoolType): string {
   }
 }
 
+function clamp(n: number, min: number, max: number): number {
+  return Math.min(Math.max(n, min), max);
+}
+
 const StatPoolField = (props: IStatPoolProps) => {
   const { fieldName, field, handleChange, poolType } = props;
 
@@ -28,14 +33,16 @@ const StatPoolField = (props: IStatPoolProps) => {
       <input
         className="flex-grow text-4xl bg-white border-2 statPoolInput rounded-t-xl"
         type="number"
+        min="0"
+        max={field.max}
         placeholder="Current"
         value={field.current}
-        onChange={(e) =>
+        onChange={(e) => {
           handleChange({
             ...field,
-            current: parseInt(e.currentTarget.value),
-          })
-        }
+            current: clamp(parseInt(e.currentTarget.value), 0, field.max),
+          });
+        }}
       />
       <div
         className={`flex-shrink grid grid-cols-2 grid-rows-1 h-40 rounded-b-xl ${getMaxBG(
@@ -46,10 +53,13 @@ const StatPoolField = (props: IStatPoolProps) => {
           <input
             className="border-b-2 border-l-2 border-r-2 statPoolInput rounded-bl-xl"
             type="number"
+            min="0"
             value={field.max}
-            onChange={(e) =>
-              handleChange({ ...field, max: parseInt(e.currentTarget.value) })
-            }
+            onChange={(e) => {
+              let newMax = parseInt(e.currentTarget.value);
+              let current = clamp(field.current, 0, newMax);
+              handleChange({ ...field, max: newMax, current: current });
+            }}
           />
         </div>
         <div className="relative">
@@ -57,6 +67,7 @@ const StatPoolField = (props: IStatPoolProps) => {
           <input
             className="border-b-2 border-r-2 rounded-br-xl statPoolInput"
             type="number"
+            min="0"
             value={field.edge}
             onChange={(e) =>
               handleChange({ ...field, edge: parseInt(e.currentTarget.value) })
