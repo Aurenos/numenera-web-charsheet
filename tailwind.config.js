@@ -3,9 +3,13 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      header: ['Cinzel Decorative'],
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};

@@ -1,6 +1,10 @@
 /* ./src/index.css */
-@tailwind base;
-@tailwind components;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+body {
+  @apply bg-gray-700;
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -11,39 +15,5 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.sheetInput {
-  @apply leading-tight;
-  @apply text-gray-700;
-  @apply border-0;
-  @apply rounded;
-  @apply shadow;
-  @apply outline-none;
-  @apply appearance-none;
-  @apply placeholder-gray-300;
-  @apply bg-white;
-  @apply px-3;
-  @apply py-2;
-}
-
-.basicInfoInput {
-  @apply sheetInput;
-  @apply w-full;
-  @apply text-center;
-  @apply text-lg;
-}
-
-.sheetInput:focus {
-  @apply ring-2;
-}
-
-.statPoolInputBasic {
-  @apply sheetInput;
-  @apply text-center;
-  @apply transform;
-  @apply bg-transparent;
-  @apply border-0;
-  @apply shadow-none;
-  @apply outline-none;
-}
-
-@tailwind utilities;
+@import './styles/components.css';
+@import 'tailwindcss/utilities';

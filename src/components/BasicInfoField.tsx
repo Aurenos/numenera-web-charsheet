@@ -3,13 +3,14 @@ interface IBasicInfoProps {
   field: string;
   type: string;
   handleChange: (text: string) => void;
+  className?: string;
 }
 
 const BasicInfoField = (props: IBasicInfoProps) => {
-  const { placeholder, field, type, handleChange } = props;
+  const { placeholder, field, type, handleChange, className } = props;
 
   return (
-    <div>
+    <div className={className || ''}>
       <input
         className="basicInfoInput"
         type={type}

@@ -1,0 +1,52 @@
+.title {
+  @apply text-6xl font-header font-bold;
+  @apply text-transparent bg-clip-text;
+  @apply bg-gradient-to-b from-yellow-300 to-red-500;
+}
+
+.sheetLabel {
+  @apply text-lg font-semibold text-gray-600;
+}
+
+.sheetInput {
+  @apply leading-tight;
+  @apply text-lg text-gray-700 placeholder-gray-300;
+  @apply border-0 rounded shadow outline-none;
+  @apply appearance-none;
+  @apply px-3 py-2;
+}
+
+.sheetInput:focus {
+  @apply ring-2;
+  @apply outline-none;
+}
+
+.basicInfoInput {
+  @apply sheetInput;
+  @apply w-full;
+  @apply text-center;
+  @apply text-lg;
+}
+
+.statPoolInput {
+  @apply sheetInput;
+  @apply transform;
+  @apply skew-x-12;
+  @apply text-center;
+  @apply bg-transparent;
+  @apply shadow-none;
+}
+
+.statPoolInput:focus {
+  @apply ring-0;
+}
+
+.statPoolFrame {
+  @apply transform -skew-x-12;
+  @apply bg-white;
+  @apply rounded shadow;
+}
+
+.statPoolFrame:focus-within {
+  @apply ring-2;
+}

@@ -11,6 +11,7 @@ class Skill {
 export enum SkillLevel {
   TRAINED,
   SPECIALIZED,
+  INABILITY,
 }
 
 export default Skill;

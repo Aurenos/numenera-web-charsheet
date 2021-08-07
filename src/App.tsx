@@ -9,9 +9,10 @@ const App = () => {
 
   return (
     <Fragment>
-      <div className="container grid grid-cols-4 gap-4 p-4 mx-auto bg-gray-100">
+      <div className="container grid grid-cols-4 gap-4 p-4 mx-auto bg-gray-50">
+        <h1 className="col-span-4 mx-auto title">Numenera</h1>
         <BasicInfo sheet={sheet} updateSheet={setSheet} />
-        <div className="grid grid-cols-1 col-span-2 grid-rows-3 gap-1 text-center border-2 border-gray-300 rounded">
+        <div className="grid grid-cols-1 col-span-2 grid-rows-3 text-center border-2 border-gray-300 rounded">
           <StatPoolField
             fieldName="Might"
             field={sheet.might}

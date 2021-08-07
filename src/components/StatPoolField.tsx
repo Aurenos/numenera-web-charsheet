@@ -23,12 +23,15 @@ const StatPoolField = (props: IStatPoolProps) => {
   const { fieldName, field, handleChange, poolType } = props;
 
   return (
-    <div className="flex flex-row items-center p-2">
-      <span className="w-1/4 mr-4 text-lg font-semibold">{fieldName}</span>
-      <div className="grid w-full grid-cols-3">
-        <div className="grid w-full grid-cols-2 gap-0 mr-4 transform -skew-x-12 bg-white border border-gray-400 rounded shadow focus-within:ring-2">
+    <div
+      className={`flex flex-row items-center ${
+        poolType == StatPoolType.MIGHT ? '' : 'border-t-2' // Jank, but I couldn't get the `even` pseudo-selector to work
+      }`}>
+      <span className="w-1/3 mr-4 text-xl sheetLabel">{fieldName}</span>
+      <div className="flex flex-row w-full">
+        <div className="grid w-1/2 grid-cols-2 gap-0 mr-4 statPoolFrame">
           <input
-            className="w-full skew-x-12 statPoolInputBasic focus:ring-0"
+            className="w-full statPoolInput"
             type="number"
             placeholder="Current"
             value={field.current}
@@ -41,7 +44,7 @@ const StatPoolField = (props: IStatPoolProps) => {
           />
           <div className={`${getMaxBG(poolType)} -skew-x-12`}>
             <input
-              className="w-full text-xl font-semibold skew-x-12 statPoolInputBasic focus:ring-0"
+              className="w-full text-xl font-semibold statPoolInput focus:ring-0"
               type="number"
               placeholder="Maximum"
               value={field.max}
@@ -51,10 +54,10 @@ const StatPoolField = (props: IStatPoolProps) => {
             />
           </div>
         </div>
-        <label>
-          <span className="mr-2 font-semibold">Edge</span>
+        <label className="ml-4 text-left">
+          <span className="mr-2 sheetLabel">Edge</span>
           <input
-            className="w-1/4 text-lg text-center bg-white border border-gray-400 shadow statPoolInputBasic"
+            className="w-1/6 text-center sheetInput"
             type="number"
             placeholder="Edge"
             value={field.edge}
