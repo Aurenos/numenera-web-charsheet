@@ -29,24 +29,18 @@
 }
 
 .statPoolInput {
-  @apply sheetInput;
-  @apply transform;
-  @apply skew-x-12;
-  @apply text-center;
+  @apply w-full h-full;
+  @apply text-2xl text-center;
+  @apply border-gray-600;
   @apply bg-transparent;
-  @apply shadow-none;
 }
 
 .statPoolInput:focus {
-  @apply ring-0;
+  @apply ring ring-inset;
 }
 
-.statPoolFrame {
-  @apply transform -skew-x-12;
-  @apply bg-white;
-  @apply rounded shadow;
-}
-
-.statPoolFrame:focus-within {
-  @apply ring-2;
+.statPoolLabel {
+  @apply font-semibold text-center;
+  @apply absolute;
+  @apply bottom-1 inset-x-1/3;
 }

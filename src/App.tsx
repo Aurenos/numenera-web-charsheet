@@ -12,7 +12,7 @@ const App = () => {
       <div className="container grid grid-cols-4 gap-4 p-4 mx-auto bg-gray-50">
         <h1 className="col-span-4 mx-auto title">Numenera</h1>
         <BasicInfo sheet={sheet} updateSheet={setSheet} />
-        <div className="grid grid-cols-1 col-span-2 grid-rows-3 text-center border border-gray-300 rounded ">
+        <div className="grid grid-cols-3 col-span-2 grid-rows-1 gap-4 p-4 text-center border border-gray-200 rounded">
           <StatPoolField
             fieldName="Might"
             field={sheet.might}

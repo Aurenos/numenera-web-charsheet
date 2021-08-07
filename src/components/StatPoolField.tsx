@@ -23,49 +23,46 @@ const StatPoolField = (props: IStatPoolProps) => {
   const { fieldName, field, handleChange, poolType } = props;
 
   return (
-    <div
-      className={`flex flex-row items-center ${
-        poolType == StatPoolType.MIGHT ? '' : 'border-t-2' // Jank, but I couldn't get the `even` pseudo-selector to work
-      }`}>
-      <span className="w-1/3 mr-4 text-xl sheetLabel">{fieldName}</span>
-      <div className="flex flex-row w-full">
-        <div className="grid w-1/2 grid-cols-2 gap-0 mr-4 statPoolFrame">
+    <div className="flex flex-col">
+      <span className="flex-shrink mb-4 text-xl sheetLabel">{fieldName}</span>
+      <input
+        className="flex-grow text-4xl bg-white border-2 statPoolInput rounded-t-xl"
+        type="number"
+        placeholder="Current"
+        value={field.current}
+        onChange={(e) =>
+          handleChange({
+            ...field,
+            current: parseInt(e.currentTarget.value),
+          })
+        }
+      />
+      <div
+        className={`flex-shrink grid grid-cols-2 grid-rows-1 h-40 rounded-b-xl ${getMaxBG(
+          poolType
+        )}`}>
+        <div className="relative">
+          <label className="statPoolLabel">Pool</label>
           <input
-            className="w-full statPoolInput"
+            className="border-b-2 border-l-2 border-r-2 statPoolInput rounded-bl-xl"
             type="number"
-            placeholder="Current"
-            value={field.current}
+            value={field.max}
             onChange={(e) =>
-              handleChange({
-                ...field,
-                current: parseInt(e.currentTarget.value),
-              })
+              handleChange({ ...field, max: parseInt(e.currentTarget.value) })
             }
           />
-          <div className={`${getMaxBG(poolType)} -skew-x-12`}>
-            <input
-              className="w-full text-xl font-semibold statPoolInput focus:ring-0"
-              type="number"
-              placeholder="Maximum"
-              value={field.max}
-              onChange={(e) =>
-                handleChange({ ...field, max: parseInt(e.currentTarget.value) })
-              }
-            />
-          </div>
         </div>
-        <label className="ml-4 text-left">
-          <span className="mr-2 sheetLabel">Edge</span>
+        <div className="relative">
+          <label className="statPoolLabel">Edge</label>
           <input
-            className="w-1/6 text-center sheetInput"
+            className="border-b-2 border-r-2 rounded-br-xl statPoolInput"
             type="number"
-            placeholder="Edge"
             value={field.edge}
             onChange={(e) =>
               handleChange({ ...field, edge: parseInt(e.currentTarget.value) })
             }
           />
-        </label>
+        </div>
       </div>
     </div>
   );
