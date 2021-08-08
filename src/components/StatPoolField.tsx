@@ -1,6 +1,8 @@
 import StatPool from '../lib/StatPool';
 import { StatPoolType } from '../lib/StatPool';
 import { clamp } from '../helpers';
+import { SparklesIcon } from '@heroicons/react/solid';
+import ReactTooltip from 'react-tooltip';
 
 interface IStatPoolProps {
   fieldName: string;
@@ -24,8 +26,22 @@ const StatPoolField = (props: IStatPoolProps) => {
   const { fieldName, field, handleChange, poolType } = props;
 
   return (
-    <div className="flex flex-col">
+    <div className="relative flex flex-col">
       <span className="flex-shrink mb-4 text-xl sheetLabel">{fieldName}</span>
+      <button
+        data-tip={'Restore'}
+        className="absolute p-1 text-gray-500 top-14 right-3 rounded-2xl hover:bg-green-400 hover:text-white"
+        onClick={(e) => {
+          handleChange({ ...field, current: field.max });
+          e.currentTarget.blur();
+        }}>
+        <SparklesIcon className="w-5 h-5" />
+        <ReactTooltip
+          effect="solid"
+          delayShow={1000}
+          className="h-10 px-2 font-sans text-base"
+        />
+      </button>
       <input
         className="flex-grow text-4xl bg-white border-2 statPoolInput rounded-t-xl"
         type="number"
@@ -40,6 +56,7 @@ const StatPoolField = (props: IStatPoolProps) => {
           });
         }}
       />
+
       <div
         className={`flex-shrink grid grid-cols-2 grid-rows-1 h-40 rounded-b-xl ${getMaxBG(
           poolType
