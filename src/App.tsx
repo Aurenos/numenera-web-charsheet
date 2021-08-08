@@ -22,8 +22,10 @@ const App = () => {
 
   return (
     <Fragment>
-      <div className="container grid grid-cols-4 gap-4 p-4 mx-auto mt-6 rounded-xl bg-gray-50">
-        <h1 className="col-span-4 mx-auto title">Numenera</h1>
+      <div className="container grid grid-cols-4 gap-4 p-4 mx-auto mt-6 bg-gray-50 rounded-xl">
+        <h1 className="col-span-4 mx-auto filter drop-shadow-lg title">
+          Numenera
+        </h1>
         <BasicInfo sheet={sheet} updateSheet={setSheet} />
         <StatPools sheet={sheet} updateSheet={setSheet} />
         <div className="flex flex-col col-span-2 border border-gray-200 rounded">
