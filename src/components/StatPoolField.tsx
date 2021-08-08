@@ -70,7 +70,7 @@ const StatPoolField = (props: IStatPoolProps) => {
             value={field.max}
             onChange={(e) => {
               let newMax = parseInt(e.currentTarget.value);
-              let current = clamp(field.current, 1, newMax);
+              let current = clamp(field.current, 0, newMax);
               handleChange({ ...field, max: newMax, current: current });
             }}
           />
