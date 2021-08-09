@@ -5,7 +5,7 @@
 }
 
 .sheetSection {
-  @apply p-4 border border-gray-200 rounded;
+  @apply p-4 border border-gray-300 rounded bg-gray-50 shadow;
 }
 
 .sheetLabel {

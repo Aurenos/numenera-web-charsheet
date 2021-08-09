@@ -1,7 +1,7 @@
 import BasicInfoField from './BasicInfoField';
 import { SheetSectionProps } from '../lib/CharacterSheet';
 
-const BasicInfo = (props: SheetSectionProps) => {
+const BasicInfoSection = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;
   const sectionClasses = `col-span-${
     props.colSpan?.toString() || '1'
@@ -88,4 +88,4 @@ const BasicInfo = (props: SheetSectionProps) => {
   );
 };
 
-export default BasicInfo;
+export default BasicInfoSection;

@@ -2,6 +2,7 @@ import SkillRadioBtn from './SkillRadioBtn';
 import Skill, { SkillLevel } from '../lib/Skill';
 import { SheetSectionProps } from '../lib/CharacterSheet';
 import { TrashIcon, PlusIcon } from '@heroicons/react/solid';
+import { keygen } from '../helpers';
 
 const Skills = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;
@@ -15,7 +16,9 @@ const Skills = (props: SheetSectionProps) => {
       <div className="flex flex-col mb-2">
         {sheet.skills.map((skill, index) => {
           return (
-            <div key={index} className="flex flex-row items-center mx-4 mb-2">
+            <div
+              key={keygen(`skill-${index}`)}
+              className="flex flex-row items-center mx-4 mb-2">
               <input
                 className="flex-grow h-10 sheetInput"
                 type="text"

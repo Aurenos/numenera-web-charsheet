@@ -2,7 +2,7 @@ import StatPoolField from './StatPoolField';
 import { SheetSectionProps } from '../lib/CharacterSheet';
 import { StatPoolType } from '../lib/StatPool';
 
-const StatPools = (props: SheetSectionProps) => {
+const StatPoolsSection = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;
   const sectionClasses = `col-span-${
     props.colSpan?.toString() || '1'
@@ -32,4 +32,4 @@ const StatPools = (props: SheetSectionProps) => {
   );
 };
 
-export default StatPools;
+export default StatPoolsSection;
