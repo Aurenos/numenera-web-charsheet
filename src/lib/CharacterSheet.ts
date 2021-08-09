@@ -12,7 +12,7 @@ class CharacterSheet {
   might: StatPool;
   speed: StatPool;
   intellect: StatPool;
-  skills: Array<Skill>; // TODO
+  skills: Array<Skill>;
   abilities: Array<undefined>; // TODO
   shins: number; // TODO
   armor: number; // TODO
@@ -61,6 +61,12 @@ class CharacterSheet {
     this.cyphers = cyphers;
     this.cypherLimit = cypherLimit;
   }
+}
+
+export interface SheetSectionProps {
+  sheet: CharacterSheet;
+  colSpan?: number;
+  updateSheet: (s: CharacterSheet) => void;
 }
 
 export default CharacterSheet;

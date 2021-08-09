@@ -1,16 +1,14 @@
 import BasicInfoField from './BasicInfoField';
-import CharacterSheet from '../lib/CharacterSheet';
+import { SheetSectionProps } from '../lib/CharacterSheet';
 
-interface IBasicInfoProps {
-  sheet: CharacterSheet;
-  updateSheet: (s: CharacterSheet) => void;
-}
-
-const BasicInfo = (props: IBasicInfoProps) => {
+const BasicInfo = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;
+  const sectionClasses = `col-span-${
+    props.colSpan?.toString() || '1'
+  } sheetSection`;
 
   return (
-    <div className="col-span-2 p-4 border border-gray-200 rounded">
+    <div className={sectionClasses}>
       <div className="grid grid-cols-1 grid-rows-3 gap-3">
         <BasicInfoField
           className="w-full"

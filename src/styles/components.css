@@ -4,6 +4,10 @@
   @apply bg-gradient-to-b from-yellow-300 to-red-500;
 }
 
+.sheetSection {
+  @apply p-4 border border-gray-200 rounded;
+}
+
 .sheetLabel {
   @apply text-lg font-semibold text-gray-600;
 }

@@ -1,17 +1,15 @@
 import StatPoolField from './StatPoolField';
-import CharacterSheet from '../lib/CharacterSheet';
+import { SheetSectionProps } from '../lib/CharacterSheet';
 import { StatPoolType } from '../lib/StatPool';
 
-interface IStatPoolProps {
-  sheet: CharacterSheet;
-  updateSheet: (s: CharacterSheet) => void;
-}
-
-const StatPools = (props: IStatPoolProps) => {
+const StatPools = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;
+  const sectionClasses = `col-span-${
+    props.colSpan?.toString() || '1'
+  } grid grid-cols-3 grid-rows-1 gap-4 text-center sheetSection`;
 
   return (
-    <div className="grid grid-cols-3 col-span-2 grid-rows-1 gap-4 p-4 text-center border border-gray-200 rounded">
+    <div className={sectionClasses}>
       <StatPoolField
         fieldName="Might"
         field={sheet.might}
