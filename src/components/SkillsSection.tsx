@@ -33,7 +33,7 @@ const Skills = (props: SheetSectionProps) => {
                 <SkillRadioBtn
                   index={index}
                   skill={skill}
-                  level={SkillLevel.TRAINED}
+                  level={SkillLevel.Trained}
                   label="T"
                   updateSkill={(sk) => {
                     let skills = sheet.skills;
@@ -44,7 +44,7 @@ const Skills = (props: SheetSectionProps) => {
                 <SkillRadioBtn
                   index={index}
                   skill={skill}
-                  level={SkillLevel.SPECIALIZED}
+                  level={SkillLevel.Specialized}
                   label="S"
                   updateSkill={(sk) => {
                     let skills = sheet.skills;
@@ -55,7 +55,7 @@ const Skills = (props: SheetSectionProps) => {
                 <SkillRadioBtn
                   index={index}
                   skill={skill}
-                  level={SkillLevel.INABILITY}
+                  level={SkillLevel.Inability}
                   label="I"
                   updateSkill={(sk) => {
                     let skills = sheet.skills;

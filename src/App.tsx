@@ -4,7 +4,6 @@ import StatPoolsSection from './components/StatPoolsSection';
 import CharacterSheet from './lib/CharacterSheet';
 import SkillsSection from './components/SkillsSection';
 import { PlusIcon, TrashIcon } from '@heroicons/react/solid';
-import { FolderIcon, FolderOpenIcon } from '@heroicons/react/solid';
 import Ability from './lib/Ability';
 import AbilityField from './components/AbilityField';
 

@@ -1,14 +1,14 @@
 export enum SkillLevel {
-  TRAINED,
-  SPECIALIZED,
-  INABILITY,
+  Trained = 'Trained',
+  Specialized = 'Specialized',
+  Inability = 'Inability',
 }
 
 class Skill {
   name: string;
   level: SkillLevel;
 
-  constructor(name = '', level = SkillLevel.TRAINED) {
+  constructor(name = '', level = SkillLevel.Trained) {
     this.name = name;
     this.level = level;
   }

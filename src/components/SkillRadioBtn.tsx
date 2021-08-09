@@ -1,5 +1,6 @@
 import ReactTooltip from 'react-tooltip';
 import Skill, { SkillLevel } from '../lib/Skill';
+import { str2enum } from '../helpers';
 
 interface ISkillRadioBtnProps {
   index: number;
@@ -7,17 +8,6 @@ interface ISkillRadioBtnProps {
   updateSkill: (s: Skill) => void;
   level: SkillLevel;
   label: string;
-}
-
-function getTooltip(level: SkillLevel) {
-  switch (level) {
-    case SkillLevel.TRAINED:
-      return 'Trained';
-    case SkillLevel.SPECIALIZED:
-      return 'Specialized';
-    case SkillLevel.INABILITY:
-      return 'Inability';
-  }
 }
 
 const SkillRadioBtn = (props: ISkillRadioBtnProps) => {
@@ -30,7 +20,7 @@ const SkillRadioBtn = (props: ISkillRadioBtnProps) => {
   return (
     <label
       className="flex items-center w-10 h-10 font-serif text-3xl text-center border border-gray-600 cursor-pointer hover:ring-inset hover:ring"
-      data-tip={getTooltip(props.level)}>
+      data-tip={props.level}>
       <span className={labelSpanClasses}>{props.label}</span>
       <ReactTooltip
         effect="solid"
@@ -46,7 +36,7 @@ const SkillRadioBtn = (props: ISkillRadioBtnProps) => {
         onChange={(e) =>
           props.updateSkill({
             ...props.skill,
-            level: parseInt(e.currentTarget.value),
+            level: str2enum(SkillLevel, e.currentTarget.value),
           })
         }
       />
