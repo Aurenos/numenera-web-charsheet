@@ -3,7 +3,7 @@ import { StatPoolType } from './StatPool';
 class Ability {
   name: string;
   description: string;
-  cost: number | null;
+  cost: string | null;
   pool: StatPoolType | null;
 
   constructor(name = '', description = '', cost = null, pool = null) {

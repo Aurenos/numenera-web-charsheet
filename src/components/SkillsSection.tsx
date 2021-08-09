@@ -2,7 +2,6 @@ import SkillRadioBtn from './SkillRadioBtn';
 import Skill, { SkillLevel } from '../lib/Skill';
 import { SheetSectionProps } from '../lib/CharacterSheet';
 import { TrashIcon, PlusIcon } from '@heroicons/react/solid';
-import { keygen } from '../helpers';
 
 const Skills = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;
@@ -17,7 +16,7 @@ const Skills = (props: SheetSectionProps) => {
         {sheet.skills.map((skill, index) => {
           return (
             <div
-              key={keygen(`skill-${index}`)}
+              key={`skill-${index}`}
               className="flex flex-row items-center mx-4 mb-2">
               <input
                 className="flex-grow h-10 sheetInput"
@@ -66,7 +65,7 @@ const Skills = (props: SheetSectionProps) => {
                 />
               </div>
               <button
-                className="h-10 p-2 text-gray-500 bg-gray-100 border border-gray-400 rounded shadow outline-none hover:bg-gray-200 focus:text-white focus:bg-gray-400 "
+                className="h-10 p-2 text-gray-500 focus:text-white focus:bg-gray-400 sheetButton"
                 onClick={(e) => {
                   let skills = sheet.skills;
                   skills.splice(index, 1);
@@ -80,7 +79,7 @@ const Skills = (props: SheetSectionProps) => {
         })}
       </div>
       <button
-        className="inline-flex items-center px-10 py-2 mx-auto mb-2 align-middle bg-gray-100 border border-gray-400 rounded shadow outline-none hover:bg-gray-200 focus:text-white focus:bg-blue-300 focus:outline-none"
+        className="inline-flex items-center px-10 py-2 mx-auto mb-2 align-middle focus:bg-blue-300 focus:outline-none focus:text-white sheetButton"
         onClick={(e) => {
           let skills = sheet.skills;
           skills.push(new Skill());

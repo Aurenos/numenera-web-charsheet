@@ -48,3 +48,16 @@
   @apply absolute;
   @apply bottom-1 inset-x-1/3;
 }
+
+.sheetButton {
+  @apply bg-gray-100 border border-gray-200 rounded shadow outline-none;
+  @apply text-gray-700;
+}
+
+.sheetButton:hover {
+  @apply bg-gray-200;
+}
+
+.sheetButton:focus {
+  @apply outline-none;
+}

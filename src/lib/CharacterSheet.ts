@@ -1,5 +1,6 @@
 import StatPool from './StatPool';
 import Skill from './Skill';
+import Ability from './Ability';
 
 class CharacterSheet {
   name: string;
@@ -13,7 +14,7 @@ class CharacterSheet {
   speed: StatPool;
   intellect: StatPool;
   skills: Array<Skill>;
-  abilities: Array<undefined>; // TODO
+  abilities: Array<Ability>; // TODO
   shins: number; // TODO
   armor: number; // TODO
   equipment: Array<undefined>; // TODO
