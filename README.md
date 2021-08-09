@@ -9,6 +9,7 @@ In progress!
 - Maybe implement a change lock feature?
 - Add expandible cheat sheet on the side
 - Pop-out (into fixed-scroll) cypher list?
+- Maybe see if I can integrate Redux
 
 ## To Do
 
