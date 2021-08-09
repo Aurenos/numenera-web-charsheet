@@ -1,4 +1,7 @@
 import { FolderIcon, FolderOpenIcon } from '@heroicons/react/solid';
+import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import { InformationCircleIcon } from '@heroicons/react/outline';
+import { CogIcon } from '@heroicons/react/outline';
 import { useState } from 'react';
 import Ability from '../lib/Ability';
 import CharacterSheet from '../lib/CharacterSheet';
@@ -13,9 +16,9 @@ interface IAbilityFieldProps {
 
 function getIcon(show: boolean) {
   return show ? (
-    <FolderOpenIcon className="w-6 h-6" />
+    <ChevronDownIcon className="w-6 h-6" />
   ) : (
-    <FolderIcon className="w-6 h-6" />
+    <ChevronRightIcon className="w-6 h-6" />
   );
 }
 
