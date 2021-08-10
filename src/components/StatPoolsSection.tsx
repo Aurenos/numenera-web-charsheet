@@ -14,19 +14,19 @@ const StatPoolsSection = (props: SheetSectionProps) => {
         fieldName="Might"
         field={sheet.might}
         handleChange={(p) => updateSheet({ ...sheet, might: p })}
-        poolType={StatPoolType.MIGHT}
+        poolType={StatPoolType.Might}
       />
       <StatPoolField
         fieldName="Speed"
         field={sheet.speed}
         handleChange={(p) => updateSheet({ ...sheet, speed: p })}
-        poolType={StatPoolType.SPEED}
+        poolType={StatPoolType.Speed}
       />
       <StatPoolField
         fieldName="Intellect"
         field={sheet.intellect}
         handleChange={(p) => updateSheet({ ...sheet, intellect: p })}
-        poolType={StatPoolType.INTELLECT}
+        poolType={StatPoolType.Intellect}
       />
     </div>
   );

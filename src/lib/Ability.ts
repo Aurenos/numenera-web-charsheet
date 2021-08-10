@@ -9,14 +9,14 @@ class Ability {
   name: string;
   description: string;
   type: AbilityType;
-  cost: string | null;
+  cost: string;
   pool: StatPoolType | null;
 
   constructor(
     name = '',
     description = '',
     type = AbilityType.Action,
-    cost = null,
+    cost = '',
     pool = null
   ) {
     this.name = name;

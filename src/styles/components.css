@@ -61,3 +61,7 @@
 .sheetButton:focus {
   @apply outline-none;
 }
+
+.nullOption:checked {
+  @apply text-gray-300;
+}

@@ -13,11 +13,11 @@ interface IStatPoolProps {
 
 function getMaxBG(poolType: StatPoolType): string {
   switch (poolType) {
-    case StatPoolType.MIGHT:
+    case StatPoolType.Might:
       return 'bg-red-300';
-    case StatPoolType.SPEED:
+    case StatPoolType.Speed:
       return 'bg-yellow-300';
-    case StatPoolType.INTELLECT:
+    case StatPoolType.Intellect:
       return 'bg-blue-300';
   }
 }

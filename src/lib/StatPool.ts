@@ -11,9 +11,9 @@ class StatPool {
 }
 
 export enum StatPoolType {
-  MIGHT,
-  SPEED,
-  INTELLECT,
+  Might = 'Might',
+  Speed = 'Speed',
+  Intellect = 'Intellect',
 }
 
 export default StatPool;
