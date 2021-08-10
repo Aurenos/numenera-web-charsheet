@@ -94,7 +94,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
         />
         <div className="flex flex-col flex-shrink w-1/5 px-1 ml-2">
           <input
-            className="h-10 my-2 text-center sheetInput"
+            className="h-10 mb-2 text-center sheetInput"
             type="text"
             placeholder="Cost"
             maxLength={3}
