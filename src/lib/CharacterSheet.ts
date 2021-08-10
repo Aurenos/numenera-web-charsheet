@@ -14,7 +14,7 @@ class CharacterSheet {
   speed: StatPool;
   intellect: StatPool;
   skills: Array<Skill>;
-  abilities: Array<Ability>; // TODO
+  abilities: Array<Ability>;
   shins: number; // TODO
   armor: number; // TODO
   equipment: Array<undefined>; // TODO

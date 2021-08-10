@@ -1,8 +1,7 @@
 import StatPool from '../lib/StatPool';
 import { StatPoolType } from '../lib/StatPool';
-import { clamp } from '../helpers';
+import { clamp, makeBasicTooltip } from '../helpers';
 import { SparklesIcon } from '@heroicons/react/solid';
-import ReactTooltip from 'react-tooltip';
 
 interface IStatPoolProps {
   fieldName: string;
@@ -36,11 +35,7 @@ const StatPoolField = (props: IStatPoolProps) => {
           e.currentTarget.blur();
         }}>
         <SparklesIcon className="w-5 h-5" />
-        <ReactTooltip
-          effect="solid"
-          delayShow={1000}
-          className="h-10 px-2 font-sans text-base"
-        />
+        {makeBasicTooltip()}
       </button>
       <input
         className="flex-grow text-4xl bg-white border-2 statPoolInput rounded-t-xl"

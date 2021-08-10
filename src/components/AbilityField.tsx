@@ -3,8 +3,8 @@ import { ReplyIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import Ability, { AbilityType } from '../lib/Ability';
 import CharacterSheet from '../lib/CharacterSheet';
-import ReactTooltip from 'react-tooltip';
 import { StatPoolType } from '../lib/StatPool';
+import { makeBasicTooltip } from '../helpers';
 
 interface IAbilityFieldProps {
   sheet: CharacterSheet;
@@ -56,11 +56,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
           }}
           data-tip={showDesc ? 'Hide Details' : 'Show Details'}>
           {getIcon(showDesc)}
-          <ReactTooltip
-            effect="solid"
-            delayShow={500}
-            className="h-10 px-2 py-2 font-sans text-base"
-          />
+          {makeBasicTooltip(500)}
         </button>
         <div className="relative w-full">
           <input
@@ -133,11 +129,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
               }}
               data-tip="Reset">
               <ReplyIcon className="w-4 h-4" />
-              <ReactTooltip
-                effect="solid"
-                delayShow={500}
-                className="h-10 px-2 py-2 font-sans text-base"
-              />
+              {makeBasicTooltip()}
             </button>
           </div>
           <select
@@ -152,11 +144,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
                 {ab}
               </option>
             ))}
-            <ReactTooltip
-              effect="solid"
-              delayShow={1000}
-              className="h-10 px-2 py-2 font-sans text-base"
-            />
+            {makeBasicTooltip()}
           </select>
         </div>
       </div>

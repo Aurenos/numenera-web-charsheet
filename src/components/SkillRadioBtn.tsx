@@ -1,6 +1,5 @@
-import ReactTooltip from 'react-tooltip';
 import Skill, { SkillLevel } from '../lib/Skill';
-import { str2enum } from '../helpers';
+import { makeBasicTooltip, str2enum } from '../helpers';
 
 interface ISkillRadioBtnProps {
   index: number;
@@ -22,11 +21,7 @@ const SkillRadioBtn = (props: ISkillRadioBtnProps) => {
       className="flex items-center w-10 h-10 font-serif text-3xl text-center border border-gray-600 cursor-pointer hover:ring-inset hover:ring"
       data-tip={props.level}>
       <span className={labelSpanClasses}>{props.label}</span>
-      <ReactTooltip
-        effect="solid"
-        delayShow={500}
-        className="h-10 px-2 py-2 font-sans text-base"
-      />
+      {makeBasicTooltip(500)}
       <input
         className="hidden"
         type="radio"
