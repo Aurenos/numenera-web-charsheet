@@ -62,6 +62,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
           <input
             className="w-full h-10 rounded-tl-none rounded-bl-none sheetInput shadow-open-l"
             value={ability.name}
+            maxLength={27}
             placeholder="Ability Name"
             onChange={(e) => {
               let abilities = sheet.abilities;
