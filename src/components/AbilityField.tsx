@@ -1,10 +1,10 @@
-import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/outline';
 import { ReplyIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
+import { makeBasicTooltip } from '../helpers';
 import Ability, { AbilityType } from '../lib/Ability';
 import CharacterSheet from '../lib/CharacterSheet';
 import { StatPoolType } from '../lib/StatPool';
-import { makeBasicTooltip } from '../helpers';
 
 interface IAbilityFieldProps {
   sheet: CharacterSheet;

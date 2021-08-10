@@ -1,6 +1,6 @@
-import StatPoolField from './StatPoolField';
 import { SheetSectionProps } from '../lib/CharacterSheet';
 import { StatPoolType } from '../lib/StatPool';
+import StatPoolField from './StatPoolField';
 
 const StatPoolsSection = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;

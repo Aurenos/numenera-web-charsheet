@@ -1,5 +1,5 @@
-import Skill, { SkillLevel } from '../lib/Skill';
 import { makeBasicTooltip, str2enum } from '../helpers';
+import Skill, { SkillLevel } from '../lib/Skill';
 
 interface ISkillRadioBtnProps {
   index: number;

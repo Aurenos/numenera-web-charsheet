@@ -1,7 +1,7 @@
-import SkillRadioBtn from './SkillRadioBtn';
-import Skill, { SkillLevel } from '../lib/Skill';
+import { PlusIcon, TrashIcon } from '@heroicons/react/solid';
 import { SheetSectionProps } from '../lib/CharacterSheet';
-import { TrashIcon, PlusIcon } from '@heroicons/react/solid';
+import Skill, { SkillLevel } from '../lib/Skill';
+import SkillRadioBtn from './SkillRadioBtn';
 
 const Skills = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;

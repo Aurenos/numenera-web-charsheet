@@ -1,5 +1,5 @@
-import BasicInfoField from './BasicInfoField';
 import { SheetSectionProps } from '../lib/CharacterSheet';
+import BasicInfoField from './BasicInfoField';
 
 const BasicInfoSection = (props: SheetSectionProps) => {
   const { sheet, updateSheet } = props;

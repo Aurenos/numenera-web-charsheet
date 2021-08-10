@@ -1,6 +1,6 @@
-import StatPool from './StatPool';
-import Skill from './Skill';
 import Ability from './Ability';
+import Skill from './Skill';
+import StatPool from './StatPool';
 
 class CharacterSheet {
   name: string;

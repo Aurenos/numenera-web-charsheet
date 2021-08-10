@@ -1,7 +1,6 @@
-import StatPool from '../lib/StatPool';
-import { StatPoolType } from '../lib/StatPool';
-import { clamp, makeBasicTooltip } from '../helpers';
 import { SparklesIcon } from '@heroicons/react/solid';
+import { clamp, makeBasicTooltip } from '../helpers';
+import StatPool, { StatPoolType } from '../lib/StatPool';
 
 interface IStatPoolProps {
   fieldName: string;
