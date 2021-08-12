@@ -27,7 +27,6 @@ const AbilityField = (props: IAbilityFieldProps) => {
   const getSummary = () => {
     let items: Array<string> = [];
     if (ability.cost && ability.pool) {
-      //TODO: Determine if I can safely restrict this to Action type abilities as well
       items.push(`${ability.cost} ${ability.pool}`);
     }
     items.push(ability.type);
