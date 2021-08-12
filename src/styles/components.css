@@ -8,12 +8,13 @@
   @apply p-4 border border-gray-300 rounded bg-gray-50 shadow;
 }
 
-.sheetSection h2:first-child {
-  @apply mx-auto my-3 text-2xl font-semibold font-serif;
+.sheetLabel {
+  @apply text-lg font-semibold font-serif text-gray-600;
 }
 
-.sheetLabel {
-  @apply text-lg font-semibold text-gray-600;
+.sheetSection h2:first-child {
+  @apply sheetLabel;
+  @apply mx-auto my-3 text-2xl;
 }
 
 .sheetInput {

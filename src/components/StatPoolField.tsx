@@ -25,9 +25,7 @@ const StatPoolField = (props: IStatPoolProps) => {
 
   return (
     <div className="relative flex flex-col">
-      <span className="flex-shrink mb-4 font-serif text-2xl sheetLabel">
-        {fieldName}
-      </span>
+      <span className="flex-shrink mb-4 text-2xl sheetLabel">{fieldName}</span>
       <button
         data-tip={'Restore'}
         className="absolute p-1 text-gray-500 top-14 right-3 rounded-2xl hover:bg-green-400 hover:text-white"
