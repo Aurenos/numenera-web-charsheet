@@ -1,4 +1,3 @@
-import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/outline';
 import { ReplyIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import { makeBasicTooltip } from '../helpers';
@@ -75,20 +74,23 @@ const AbilityField = (props: IAbilityFieldProps) => {
           }}
         />
         <div className="flex flex-col flex-shrink w-1/5 px-1 ml-2">
-          <select
-            className="h-10 p-1 mb-2 text-center rounded shadow"
-            data-tip="Action Type"
-            onChange={(e) => updateAbility({ type: e.currentTarget.value })}>
-            {Object.keys(AbilityType).map((ab) => (
-              <option
-                className="text-gray-500"
-                key={`ability-type-${index}-${ab}`}
-                value={ab}>
-                {ab}
-              </option>
-            ))}
+          <div className="z-30">
+            <select
+              className="w-full h-10 p-1 mb-2 text-center rounded shadow"
+              data-tip="Action Type"
+              value={ability.type}
+              onChange={(e) => updateAbility({ type: e.currentTarget.value })}>
+              {Object.keys(AbilityType).map((ab) => (
+                <option
+                  className="text-gray-500"
+                  key={`ability-type-${index}-${ab}`}
+                  value={ab}>
+                  {ab}
+                </option>
+              ))}
+            </select>
             {makeBasicTooltip()}
-          </select>
+          </div>
           <input
             className="h-10 mb-2 text-center sheetInput"
             type="text"
