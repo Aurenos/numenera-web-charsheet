@@ -5,6 +5,7 @@ import { makeBasicTooltip } from '../helpers';
 import Ability, { AbilityType } from '../lib/Ability';
 import CharacterSheet from '../lib/CharacterSheet';
 import { StatPoolType } from '../lib/StatPool';
+import DetailsToggleButton from './utility/DetailsToggleButton';
 
 interface IAbilityFieldProps {
   sheet: CharacterSheet;
@@ -13,16 +14,8 @@ interface IAbilityFieldProps {
   index: number;
 }
 
-function getIcon(show: boolean) {
-  return show ? (
-    <ChevronDownIcon className="w-6 h-6" />
-  ) : (
-    <ChevronRightIcon className="w-6 h-6" />
-  );
-}
-
 const AbilityField = (props: IAbilityFieldProps) => {
-  const [showDesc, setDescVisible] = useState<boolean>(false);
+  const [showDetails, setDetailsVisibility] = useState<boolean>(false);
 
   const { sheet, updateSheet, ability, index } = props;
 
@@ -45,20 +38,11 @@ const AbilityField = (props: IAbilityFieldProps) => {
   return (
     <div className="flex flex-col flex-grow mr-4">
       <div className="z-10 flex flex-row">
-        <button
-          className={`h-10 p-2 rounded-tr-none rounded-br-none border-r-0 sheetButton shadow-open-r ${
-            showDesc
-              ? 'text-white bg-gray-400 focus:text-gray-500 focus:bg-gray-100 hover:bg-gray-400'
-              : 'text-gray-500 focus:text-white focus:bg-gray-400 hover:bg-gray-100'
-          }`}
-          onClick={(e) => {
-            setDescVisible(!showDesc);
-            e.currentTarget.blur();
-          }}
-          data-tip={showDesc ? 'Hide Details' : 'Show Details'}>
-          {getIcon(showDesc)}
-          {makeBasicTooltip(500)}
-        </button>
+        <DetailsToggleButton
+          showDetails={showDetails}
+          toggleClick={setDetailsVisibility}
+        />
+
         <div className="relative w-full">
           <input
             className="w-full h-10 rounded-tl-none rounded-bl-none sheetInput shadow-open-l"
@@ -79,7 +63,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
       </div>
       <div
         className={`${
-          showDesc ? 'visible' : 'hidden'
+          showDetails ? 'visible' : 'hidden'
         } z-0 flex flex-row text-gray-500 border-b border-l border-r p-2 rounded border-gray-200 rounded-t-none shadow`}>
         <textarea
           className={`flex-grow outline-none py-1 sheetInput focus:ring-inset`}
