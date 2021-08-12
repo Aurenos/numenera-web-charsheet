@@ -12,7 +12,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
-      serif: ['Lora', 'serif'],
+      serif: ['Lora', 'ui-serif', 'serif'],
       header: ['Cinzel Decorative'],
     },
   },

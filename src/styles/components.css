@@ -9,7 +9,7 @@
 }
 
 .sheetSection h2:first-child {
-  @apply mx-auto my-3 text-xl font-semibold;
+  @apply mx-auto my-3 text-2xl font-semibold font-serif;
 }
 
 .sheetLabel {
