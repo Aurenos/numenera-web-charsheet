@@ -35,6 +35,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
   const getSummary = () => {
     let items: Array<string> = [];
     if (ability.cost && ability.pool) {
+      //TODO: Determine if I can safely restrict this to Action type abilities as well
       items.push(`${ability.cost} ${ability.pool}`);
     }
     items.push(ability.type);
@@ -90,6 +91,20 @@ const AbilityField = (props: IAbilityFieldProps) => {
           }}
         />
         <div className="flex flex-col flex-shrink w-1/5 px-1 ml-2">
+          <select
+            className="h-10 p-1 mb-2 text-center rounded shadow"
+            data-tip="Action Type"
+            onChange={(e) => updateAbility({ type: e.currentTarget.value })}>
+            {Object.keys(AbilityType).map((ab) => (
+              <option
+                className="text-gray-500"
+                key={`ability-type-${index}-${ab}`}
+                value={ab}>
+                {ab}
+              </option>
+            ))}
+            {makeBasicTooltip()}
+          </select>
           <input
             className="h-10 mb-2 text-center sheetInput"
             type="text"
@@ -100,7 +115,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
               updateAbility({ cost: e.currentTarget.value });
             }}
           />
-          <div className="flex flex-row items-center mb-2">
+          <div className="flex flex-row items-center">
             <select
               className={`${
                 ability.pool === null ? 'text-gray-300' : 'text-gray-500'
@@ -133,20 +148,6 @@ const AbilityField = (props: IAbilityFieldProps) => {
               {makeBasicTooltip()}
             </button>
           </div>
-          <select
-            className="h-10 p-1 text-center rounded shadow"
-            data-tip="Action Type"
-            onChange={(e) => updateAbility({ type: e.currentTarget.value })}>
-            {Object.keys(AbilityType).map((ab) => (
-              <option
-                className="text-gray-500"
-                key={`ability-type-${index}-${ab}`}
-                value={ab}>
-                {ab}
-              </option>
-            ))}
-            {makeBasicTooltip()}
-          </select>
         </div>
       </div>
     </div>

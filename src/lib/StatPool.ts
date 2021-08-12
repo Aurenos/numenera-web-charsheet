@@ -1,4 +1,4 @@
-class StatPool {
+export default class StatPool {
   current: number;
   max: number;
   edge: number;
@@ -15,5 +15,3 @@ export enum StatPoolType {
   Speed = 'Speed',
   Intellect = 'Intellect',
 }
-
-export default StatPool;

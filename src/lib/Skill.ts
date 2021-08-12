@@ -4,7 +4,7 @@ export enum SkillLevel {
   Inability = 'Inability',
 }
 
-class Skill {
+export default class Skill {
   name: string;
   level: SkillLevel;
 
@@ -13,5 +13,3 @@ class Skill {
     this.level = level;
   }
 }
-
-export default Skill;

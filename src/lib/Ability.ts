@@ -5,7 +5,7 @@ export enum AbilityType {
   Enabler = 'Enabler',
 }
 
-class Ability {
+export default class Ability {
   name: string;
   description: string;
   type: AbilityType;
@@ -26,5 +26,3 @@ class Ability {
     this.type = type;
   }
 }
-
-export default Ability;

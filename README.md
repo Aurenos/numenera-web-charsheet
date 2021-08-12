@@ -10,6 +10,7 @@ In progress!
 - Add expandible cheat sheet on the side
 - Pop-out (into fixed-scroll) cypher list?
 - Maybe see if I can integrate Redux
+- Drag-and-drop reordering of lists
 
 ## To Do
 
