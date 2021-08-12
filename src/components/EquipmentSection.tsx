@@ -1,10 +1,6 @@
-import { useState } from 'react';
-import { makeBasicTooltip } from '../helpers';
 import { ISheetSectionProps } from '../lib/CharacterSheet';
-import Equipment, { EquipmentType, EquipmentSize } from '../lib/Equipment';
+import Equipment from '../lib/Equipment';
 import EquipmentField from './EquipmentField';
-import EquipmentTypeRadioBtn from './EquipmentTypeRadioBtn';
-import DetailsToggleButton from './utility/DetailsToggleButton';
 import ListAddButton from './utility/ListAddButton';
 import TrashButton from './utility/TrashButton';
 
