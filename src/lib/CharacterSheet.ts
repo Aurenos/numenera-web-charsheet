@@ -1,8 +1,10 @@
 import Ability from './Ability';
+import { ArmorBonus } from './Armor';
+import Equipment from './Equipment';
 import Skill from './Skill';
 import StatPool from './StatPool';
 
-class CharacterSheet {
+export default class CharacterSheet {
   name: string;
   type: string;
   descriptor: string;
@@ -16,8 +18,9 @@ class CharacterSheet {
   skills: Array<Skill>;
   abilities: Array<Ability>;
   shins: number; // TODO
-  armor: number; // TODO
-  equipment: Array<undefined>; // TODO
+  // armor: Armor | null; // TODO
+  armorBonuses: Array<ArmorBonus>;
+  equipment: Array<Equipment>; // TODO
   cyphers: Array<undefined>; // TODO
   cypherLimit: number; // TODO
 
@@ -39,7 +42,8 @@ class CharacterSheet {
     skills = [],
     abilities = [],
     shins = 0,
-    armor = 0,
+    // armor = null,
+    armorBonuses = [],
     equipment = [],
     cyphers = [],
     cypherLimit = 1
@@ -57,17 +61,16 @@ class CharacterSheet {
     this.skills = skills;
     this.abilities = abilities;
     this.shins = shins;
-    this.armor = armor;
+    // this.armor = armor;
+    this.armorBonuses = armorBonuses;
     this.equipment = equipment;
     this.cyphers = cyphers;
     this.cypherLimit = cypherLimit;
   }
 }
 
-export interface SheetSectionProps {
+export interface ISheetSectionProps {
   sheet: CharacterSheet;
   colSpan?: number;
   updateSheet: (s: CharacterSheet) => void;
 }
-
-export default CharacterSheet;

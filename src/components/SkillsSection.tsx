@@ -1,9 +1,10 @@
-import { PlusIcon, TrashIcon } from '@heroicons/react/solid';
-import { SheetSectionProps } from '../lib/CharacterSheet';
+import { ISheetSectionProps } from '../lib/CharacterSheet';
 import Skill, { SkillLevel } from '../lib/Skill';
 import SkillRadioBtn from './SkillRadioBtn';
+import ListAddButton from './utility/ListAddButton';
+import TrashButton from './utility/TrashButton';
 
-const Skills = (props: SheetSectionProps) => {
+const Skills = (props: ISheetSectionProps) => {
   const { sheet, updateSheet } = props;
   const sectionClasses = `col-span-${
     props.colSpan?.toString() || '1'
@@ -11,7 +12,7 @@ const Skills = (props: SheetSectionProps) => {
 
   return (
     <div className={sectionClasses}>
-      <h2 className="mx-auto my-3 text-xl font-semibold">Skills</h2>
+      <h2>Skills</h2>
       <div className="flex flex-col mb-2">
         {sheet.skills.map((skill, index) => {
           return (
@@ -34,7 +35,6 @@ const Skills = (props: SheetSectionProps) => {
                   index={index}
                   skill={skill}
                   level={SkillLevel.Trained}
-                  label="T"
                   updateSkill={(sk) => {
                     let skills = sheet.skills;
                     skills[index] = sk;
@@ -45,7 +45,6 @@ const Skills = (props: SheetSectionProps) => {
                   index={index}
                   skill={skill}
                   level={SkillLevel.Specialized}
-                  label="S"
                   updateSkill={(sk) => {
                     let skills = sheet.skills;
                     skills[index] = sk;
@@ -56,7 +55,6 @@ const Skills = (props: SheetSectionProps) => {
                   index={index}
                   skill={skill}
                   level={SkillLevel.Inability}
-                  label="I"
                   updateSkill={(sk) => {
                     let skills = sheet.skills;
                     skills[index] = sk;
@@ -64,31 +62,25 @@ const Skills = (props: SheetSectionProps) => {
                   }}
                 />
               </div>
-              <button
-                className="h-10 p-2 text-gray-500 focus:text-white focus:bg-gray-400 sheetButton"
-                onClick={(e) => {
+              <TrashButton
+                onClick={() => {
                   let skills = sheet.skills;
                   skills.splice(index, 1);
                   updateSheet({ ...sheet, skills });
-                  e.currentTarget.blur();
-                }}>
-                <TrashIcon className="w-6 h-6" />
-              </button>
+                }}
+              />
             </div>
           );
         })}
       </div>
-      <button
-        className="inline-flex items-center px-10 py-2 mx-auto mb-2 align-middle focus:bg-blue-300 focus:outline-none focus:text-white sheetButton"
-        onClick={(e) => {
+      <ListAddButton
+        label="Add Skill"
+        onClick={() => {
           let skills = sheet.skills;
           skills.push(new Skill());
           updateSheet({ ...sheet, skills });
-          e.currentTarget.blur();
-        }}>
-        <PlusIcon className="w-6 h-6 mr-2 text-green-500" />
-        <span className="font-semibold ">Add Skill</span>
-      </button>
+        }}
+      />
     </div>
   );
 };

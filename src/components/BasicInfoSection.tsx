@@ -1,7 +1,7 @@
-import { SheetSectionProps } from '../lib/CharacterSheet';
+import { ISheetSectionProps } from '../lib/CharacterSheet';
 import BasicInfoField from './BasicInfoField';
 
-const BasicInfoSection = (props: SheetSectionProps) => {
+const BasicInfoSection = (props: ISheetSectionProps) => {
   const { sheet, updateSheet } = props;
   const sectionClasses = `col-span-${
     props.colSpan?.toString() || '1'

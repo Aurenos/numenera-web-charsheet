@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useState } from 'react';
 import AbilitiesSection from './components/AbilitiesSection';
-import BasicInfoSection from './components/BasicInfoSecion';
+// import ArmorSection from './components/ArmorSection';
+import BasicInfoSection from './components/BasicInfoSection';
+import EquipmentSection from './components/EquipmentSection';
 import SkillsSection from './components/SkillsSection';
 import StatPoolsSection from './components/StatPoolsSection';
 import CharacterSheet from './lib/CharacterSheet';
@@ -22,13 +24,36 @@ const App = () => {
   return (
     <Fragment>
       <div className="container grid grid-cols-4 gap-4 p-4 mx-auto mt-6 bg-gray-100 rounded-xl">
-        <h1 className="col-span-4 mx-auto filter drop-shadow-lg title">
+        <h1 className="col-span-4 mx-auto my-6 filter drop-shadow-lg title">
           Numenera
         </h1>
         <BasicInfoSection sheet={sheet} updateSheet={setSheet} colSpan={2} />
         <StatPoolsSection sheet={sheet} updateSheet={setSheet} colSpan={2} />
         <SkillsSection sheet={sheet} updateSheet={setSheet} colSpan={2} />
+        {/* <ArmorSection sheet={sheet} updateSheet={setSheet} colSpan={2} /> */}
         <AbilitiesSection sheet={sheet} updateSheet={setSheet} colSpan={2} />
+        <EquipmentSection sheet={sheet} updateSheet={setSheet} colSpan={2} />
+        <div className="absolute bottom-0 right-0 p-2 text-xs rounded-tl bg-gray-50 ">
+          Sword icon made by{' '}
+          <a href="https://www.freepik.com" title="Freepik">
+            Freepik
+          </a>{' '}
+          from{' '}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+          <br />
+          Shield icon made by{' '}
+          <a
+            href="https://www.flaticon.com/authors/good-ware"
+            title="Good Ware">
+            Good Ware
+          </a>{' '}
+          from{' '}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </div>
       </div>
     </Fragment>
   );
