@@ -10,6 +10,18 @@ const AbilitiesSection = (props: ISheetSectionProps) => {
     props.colSpan?.toString() || '1'
   } flex flex-col sheetSection`;
 
+  const deleteAbility = (index: number) => {
+    let abilities = sheet.abilities;
+    abilities.splice(index, 1);
+    updateSheet({ ...sheet, abilities });
+  };
+
+  const addAbility = () => {
+    let abilities = sheet.abilities;
+    abilities.push(new Ability());
+    updateSheet({ ...sheet, abilities });
+  };
+
   return (
     <div className={sectionClasses}>
       <h2>Abilities</h2>
@@ -25,25 +37,12 @@ const AbilitiesSection = (props: ISheetSectionProps) => {
                 index={index}
                 ability={ability}
               />
-              <TrashButton
-                onClick={() => {
-                  let abilities = sheet.abilities;
-                  abilities.splice(index, 1);
-                  updateSheet({ ...sheet, abilities });
-                }}
-              />
+              <TrashButton onClick={() => deleteAbility(index)} />
             </div>
           );
         })}
       </div>
-      <ListAddButton
-        label="Add Ability"
-        onClick={() => {
-          let abilities = sheet.abilities;
-          abilities.push(new Ability());
-          updateSheet({ ...sheet, abilities });
-        }}
-      />
+      <ListAddButton label="Add Ability" onClick={() => addAbility()} />
     </div>
   );
 };

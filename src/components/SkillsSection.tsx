@@ -10,6 +10,24 @@ const Skills = (props: ISheetSectionProps) => {
     props.colSpan?.toString() || '1'
   } flex flex-col sheetSection`;
 
+  const updateSkills = (change: Object, index: number) => {
+    let skills = sheet.skills;
+    Object.assign(skills[index], change);
+    updateSheet({ ...sheet, skills });
+  };
+
+  const deleteSkill = (index: number) => {
+    let skills = sheet.skills;
+    skills.splice(index, 1);
+    updateSheet({ ...sheet, skills });
+  };
+
+  const addSkill = () => {
+    let skills = sheet.skills;
+    skills.push(new Skill());
+    updateSheet({ ...sheet, skills });
+  };
+
   return (
     <div className={sectionClasses}>
       <h2>Skills</h2>
@@ -25,9 +43,7 @@ const Skills = (props: ISheetSectionProps) => {
                 placeholder="Skill Name"
                 value={skill.name}
                 onChange={(e) => {
-                  let skills = sheet.skills;
-                  skills[index] = { ...skill, name: e.currentTarget.value };
-                  updateSheet({ ...sheet, skills });
+                  updateSkills({ name: e.currentTarget.value }, index);
                 }}
               />
               <div className="flex flex-row mx-4">
@@ -35,52 +51,27 @@ const Skills = (props: ISheetSectionProps) => {
                   index={index}
                   skill={skill}
                   level={SkillLevel.Trained}
-                  updateSkill={(sk) => {
-                    let skills = sheet.skills;
-                    skills[index] = sk;
-                    updateSheet({ ...sheet, skills });
-                  }}
+                  updateSkills={updateSkills}
                 />
                 <SkillRadioBtn
                   index={index}
                   skill={skill}
                   level={SkillLevel.Specialized}
-                  updateSkill={(sk) => {
-                    let skills = sheet.skills;
-                    skills[index] = sk;
-                    updateSheet({ ...sheet, skills });
-                  }}
+                  updateSkills={updateSkills}
                 />
                 <SkillRadioBtn
                   index={index}
                   skill={skill}
                   level={SkillLevel.Inability}
-                  updateSkill={(sk) => {
-                    let skills = sheet.skills;
-                    skills[index] = sk;
-                    updateSheet({ ...sheet, skills });
-                  }}
+                  updateSkills={updateSkills}
                 />
               </div>
-              <TrashButton
-                onClick={() => {
-                  let skills = sheet.skills;
-                  skills.splice(index, 1);
-                  updateSheet({ ...sheet, skills });
-                }}
-              />
+              <TrashButton onClick={() => deleteSkill(index)} />
             </div>
           );
         })}
       </div>
-      <ListAddButton
-        label="Add Skill"
-        onClick={() => {
-          let skills = sheet.skills;
-          skills.push(new Skill());
-          updateSheet({ ...sheet, skills });
-        }}
-      />
+      <ListAddButton label="Add Skill" onClick={() => addSkill()} />
     </div>
   );
 };

@@ -19,6 +19,18 @@ const EquipmentSection = (props: ISheetSectionProps) => {
     updateSheet({ ...sheet, equipment });
   };
 
+  const deleteEquipment = (index: number) => {
+    let equipment = sheet.equipment;
+    equipment.splice(index, 1);
+    updateSheet({ ...sheet, equipment });
+  };
+
+  const addEquipment = () => {
+    let equipment = sheet.equipment;
+    equipment.push(new Equipment());
+    updateSheet({ ...sheet, equipment });
+  };
+
   return (
     <div className={sectionClasses}>
       <h2>Equipment</h2>
@@ -56,25 +68,12 @@ const EquipmentSection = (props: ISheetSectionProps) => {
                   updateEquipment={updateEquipment}
                 />
               </div>
-              <TrashButton
-                onClick={() => {
-                  let equipment = sheet.equipment;
-                  equipment.splice(index, 1);
-                  updateSheet({ ...sheet, equipment });
-                }}
-              />
+              <TrashButton onClick={() => deleteEquipment(index)} />
             </div>
           );
         })}
       </div>
-      <ListAddButton
-        label="Add Equipment"
-        onClick={() => {
-          let equipment = sheet.equipment;
-          equipment.push(new Equipment());
-          updateSheet({ ...sheet, equipment });
-        }}
-      />
+      <ListAddButton label="Add Equipment" onClick={() => addEquipment()} />
     </div>
   );
 };

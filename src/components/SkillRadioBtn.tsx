@@ -4,7 +4,7 @@ import Skill, { SkillLevel } from '../lib/Skill';
 interface ISkillRadioBtnProps {
   index: number;
   skill: Skill;
-  updateSkill: (s: Skill) => void;
+  updateSkills: (change: Object, index: number) => void;
   level: SkillLevel;
 }
 
@@ -40,10 +40,12 @@ const SkillRadioBtn = (props: ISkillRadioBtnProps) => {
         value={props.level}
         checked={checked}
         onChange={(e) =>
-          props.updateSkill({
-            ...props.skill,
-            level: str2enum(SkillLevel, e.currentTarget.value),
-          })
+          props.updateSkills(
+            {
+              level: str2enum(SkillLevel, e.currentTarget.value),
+            },
+            props.index
+          )
         }
       />
     </label>
