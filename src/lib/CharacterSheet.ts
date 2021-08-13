@@ -18,7 +18,7 @@ export default class CharacterSheet {
   skills: Array<Skill>;
   abilities: Array<Ability>;
   shins: number; // TODO
-  // armor: Armor | null; // TODO
+  equippedArmorId: string | null;
   armorBonuses: Array<ArmorBonus>;
   equipment: Array<Equipment>;
   cyphers: Array<undefined>; // TODO
@@ -42,7 +42,7 @@ export default class CharacterSheet {
     skills = [],
     abilities = [],
     shins = 0,
-    // armor = null,
+    equippedArmorId = null,
     armorBonuses = [],
     equipment = [],
     cyphers = [],
@@ -61,7 +61,7 @@ export default class CharacterSheet {
     this.skills = skills;
     this.abilities = abilities;
     this.shins = shins;
-    // this.armor = armor;
+    this.equippedArmorId = equippedArmorId;
     this.armorBonuses = armorBonuses;
     this.equipment = equipment;
     this.cyphers = cyphers;

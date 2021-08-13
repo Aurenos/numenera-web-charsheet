@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ArmorBonus } from '../lib/Armor';
 import { ISheetSectionProps } from '../lib/CharacterSheet';
-import Equipment, { EquipmentType } from '../lib/Equipment';
+import { EquipmentType } from '../lib/Equipment';
 
 const ArmorSection = (props: ISheetSectionProps) => {
   const { sheet, updateSheet } = props;
-  const [showBonuses, setBonusesDisplay] = useState<boolean>(false);
-  const [armorId, setArmorId] = useState<string | null>(null);
   const sectionClasses = `col-span-${
     props.colSpan?.toString() || '1'
   } flex flex-col sheetSection`;
 
   useEffect(() => {
-    if (armorId) {
-      let arm = sheet.equipment.filter((a) => a.id === armorId);
-      if (arm.length < 1) {
-        setArmorId(null);
-      }
+    if (!getEquippedArmor()) {
+      updateSheet({ ...sheet, equippedArmorId: null });
     }
-  });
+  }, [sheet.equipment]);
 
   const getEquippedArmor = () => {
-    return armorId ? sheet.equipment.filter((a) => a.id === armorId)[0] : null;
+    let armorId = sheet.equippedArmorId;
+    return armorId
+      ? sheet.equipment.filter(
+          (a) => a.id === armorId && a.type === EquipmentType.Armor
+        )[0]
+      : null;
   };
 
   const calculateArmorTotal = () => {
@@ -49,15 +49,15 @@ const ArmorSection = (props: ISheetSectionProps) => {
       <div className="flex flex-row mt-3">
         <select
           className={`${
-            armorId === null ? 'text-gray-300' : 'text-gray-500'
+            sheet.equippedArmorId ? 'text-gray-500' : 'text-gray-300'
           } w-full h-10 p-2 text-lg border rounded shadow`}
           onChange={(e) => {
             let arm = sheet.equipment.filter(
               (a) => a.id === e.currentTarget.value
             )[0];
-            setArmorId(arm?.id || null);
+            updateSheet({ ...sheet, equippedArmorId: arm?.id || null });
           }}
-          value={armorId || ''}>
+          value={sheet.equippedArmorId || ''}>
           <option className="hidden" value="">
             Armor
           </option>
