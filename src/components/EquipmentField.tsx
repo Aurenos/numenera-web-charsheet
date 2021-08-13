@@ -9,18 +9,18 @@ interface IEquipmentFieldProps {
   sheet: CharacterSheet;
   updateSheet: (s: CharacterSheet) => void;
   equipment: Equipment;
-  index: number;
 }
 
 const EquipmentField = (props: IEquipmentFieldProps) => {
   const [showDetails, setDetailsVisibility] = useState<boolean>(false);
 
-  const { sheet, updateSheet, equipment, index } = props;
+  const { sheet, updateSheet, equipment } = props;
 
   const updateEquipment = (change: Object) => {
-    let equipment = sheet.equipment;
-    Object.assign(equipment[index], change);
-    updateSheet({ ...sheet, equipment });
+    let eqList = sheet.equipment;
+    let idx = eqList.map((eq) => eq.id).indexOf(equipment.id);
+    Object.assign(eqList[idx], change);
+    updateSheet({ ...sheet, equipment: eqList });
   };
 
   return (
@@ -40,19 +40,16 @@ const EquipmentField = (props: IEquipmentFieldProps) => {
         />
         <div className="flex flex-row mx-4">
           <EquipmentTypeRadioBtn
-            index={index}
             equipment={equipment}
             type={EquipmentType.Other}
             updateEquipment={updateEquipment}
           />
           <EquipmentTypeRadioBtn
-            index={index}
             equipment={equipment}
             type={EquipmentType.Weapon}
             updateEquipment={updateEquipment}
           />
           <EquipmentTypeRadioBtn
-            index={index}
             equipment={equipment}
             type={EquipmentType.Armor}
             updateEquipment={updateEquipment}
@@ -85,7 +82,7 @@ const EquipmentField = (props: IEquipmentFieldProps) => {
               {Object.keys(EquipmentSize).map((w) => {
                 return (
                   <option
-                    key={`equipment-weight-${index}-${w}`}
+                    key={`equipment-weight-${equipment.id}-${w}`}
                     className="text-gray-500"
                     value={w}>
                     {w}

@@ -10,9 +10,8 @@ const EquipmentSection = (props: ISheetSectionProps) => {
     props.colSpan?.toString() || '1'
   } flex flex-col sheetSection`;
 
-  const deleteEquipment = (index: number) => {
-    let equipment = sheet.equipment;
-    equipment.splice(index, 1);
+  const deleteEquipment = (id: string) => {
+    let equipment = sheet.equipment.filter((eq) => eq.id !== id);
     updateSheet({ ...sheet, equipment });
   };
 
@@ -26,18 +25,17 @@ const EquipmentSection = (props: ISheetSectionProps) => {
     <div className={sectionClasses}>
       <h2>Equipment</h2>
       <div className="flex flex-col mb-2">
-        {sheet.equipment.map((equipment, index) => {
+        {sheet.equipment.map((equipment) => {
           return (
             <div
-              key={`equipment-${index}`}
+              key={equipment.id}
               className="flex flex-row items-start mx-4 mb-2">
               <EquipmentField
                 sheet={sheet}
                 equipment={equipment}
                 updateSheet={updateSheet}
-                index={index}
               />
-              <TrashButton onClick={() => deleteEquipment(index)} />
+              <TrashButton onClick={() => deleteEquipment(equipment.id)} />
             </div>
           );
         })}

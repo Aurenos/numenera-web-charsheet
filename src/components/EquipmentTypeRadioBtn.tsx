@@ -5,10 +5,9 @@ import { ReactComponent as ShieldIcon } from '../img/shield.svg';
 import { StarIcon } from '@heroicons/react/solid';
 
 interface IEquipmentTypeRadioBtnProps {
-  index: number;
   equipment: Equipment;
   type: EquipmentType;
-  updateEquipment: (a: Object, b: number) => void;
+  updateEquipment: (a: Object) => void;
 }
 
 const EquipmentTypeRadioBtn = (props: IEquipmentTypeRadioBtnProps) => {
@@ -38,16 +37,13 @@ const EquipmentTypeRadioBtn = (props: IEquipmentTypeRadioBtnProps) => {
       <input
         className="hidden"
         type="radio"
-        name={`equipment-${props.index}`}
+        name={`equipment-${props.equipment.id}`}
         value={props.type}
         checked={checked}
         onChange={(e) =>
-          props.updateEquipment(
-            {
-              type: str2enum(EquipmentType, e.currentTarget.value),
-            },
-            props.index
-          )
+          props.updateEquipment({
+            type: str2enum(EquipmentType, e.currentTarget.value),
+          })
         }
       />
     </label>

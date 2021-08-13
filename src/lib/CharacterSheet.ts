@@ -20,7 +20,7 @@ export default class CharacterSheet {
   shins: number; // TODO
   // armor: Armor | null; // TODO
   armorBonuses: Array<ArmorBonus>;
-  equipment: Array<Equipment>; // TODO
+  equipment: Array<Equipment>;
   cyphers: Array<undefined>; // TODO
   cypherLimit: number; // TODO
 

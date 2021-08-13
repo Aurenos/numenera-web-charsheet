@@ -6,25 +6,28 @@ import Equipment, { EquipmentType } from '../lib/Equipment';
 const ArmorSection = (props: ISheetSectionProps) => {
   const { sheet, updateSheet } = props;
   const [showBonuses, setBonusesDisplay] = useState<boolean>(false);
-  const [armor, setArmor] = useState<Equipment | null>(null);
+  const [armorId, setArmorId] = useState<string | null>(null);
   const sectionClasses = `col-span-${
     props.colSpan?.toString() || '1'
   } flex flex-col sheetSection`;
 
   useEffect(() => {
-    if (armor) {
-      let arm = sheet.equipment.filter((a) => a.name === armor.name);
+    if (armorId) {
+      let arm = sheet.equipment.filter((a) => a.id === armorId);
       if (arm.length < 1) {
-        setArmor(null);
+        setArmorId(null);
       }
     }
   });
 
+  const getEquippedArmor = () => {
+    return armorId ? sheet.equipment.filter((a) => a.id === armorId)[0] : null;
+  };
+
   const calculateArmorTotal = () => {
     let totalArmor = 0;
-    if (armor) {
-      totalArmor += armor.armorValue;
-    }
+    let equippedArmor = getEquippedArmor();
+    totalArmor += equippedArmor ? equippedArmor.armorValue : 0;
 
     totalArmor += sheet.armorBonuses.reduce(
       (sum, bonus) => sum + bonus.value,
@@ -46,21 +49,24 @@ const ArmorSection = (props: ISheetSectionProps) => {
       <div className="flex flex-row mt-3">
         <select
           className={`${
-            armor === null ? 'text-gray-300' : 'text-gray-500'
+            armorId === null ? 'text-gray-300' : 'text-gray-500'
           } w-full h-10 p-2 text-lg border rounded shadow`}
           onChange={(e) => {
             let arm = sheet.equipment.filter(
-              (a) => a.name === e.currentTarget.value
+              (a) => a.id === e.currentTarget.value
             )[0];
-            setArmor(arm);
+            setArmorId(arm?.id || null);
           }}
-          value={armor === null ? '' : armor.name}>
+          value={armorId || ''}>
           <option className="hidden" value="">
             Armor
           </option>
-          {getArmors().map((a, i) => (
-            <option key={`armor-${i}`} className="text-gray-500" value={a.name}>
-              {a.name}
+          {getArmors().map((a) => (
+            <option
+              key={`armor-${a.id}`}
+              className="text-gray-500"
+              value={a.id}>
+              {a.name ? a.name : '(Unnamed Armor)'}
             </option>
           ))}
         </select>

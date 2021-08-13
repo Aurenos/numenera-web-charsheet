@@ -1,3 +1,5 @@
+import { v4 as uuid4 } from 'uuid';
+
 export enum EquipmentType {
   Armor = 'Armor',
   Weapon = 'Weapon',
@@ -11,17 +13,20 @@ export enum EquipmentSize {
 }
 
 export default class Equipment {
+  id: string;
   name: string;
   description: string;
   type: EquipmentType;
   size: EquipmentSize;
 
   constructor(
+    id = uuid4(),
     name = '',
     description = '',
     type = EquipmentType.Other,
     size = EquipmentSize.Light
   ) {
+    this.id = id;
     this.name = name;
     this.description = description;
     this.type = type;
