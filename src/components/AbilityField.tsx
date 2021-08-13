@@ -56,7 +56,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
               updateSheet({ ...sheet, abilities });
             }}
           />
-          <p className="absolute text-gray-300 right-2 top-2">{getSummary()}</p>
+          <p className="absolute text-gray-400 right-2 top-2">{getSummary()}</p>
         </div>
       </div>
       <div
@@ -104,7 +104,7 @@ const AbilityField = (props: IAbilityFieldProps) => {
             <select
               className={`${
                 ability.pool === null ? 'text-gray-300' : 'text-gray-500'
-              } h-10 shadow rounded text-center p-1`}
+              } h-10 shadow rounded text-center p-1 cursor-pointer`}
               value={(ability.pool as string) || ''}
               onChange={(e) => {
                 updateAbility({

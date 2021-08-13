@@ -76,7 +76,7 @@ const EquipmentField = (props: IEquipmentFieldProps) => {
         equipment.type === EquipmentType.Weapon ? (
           <div>
             <select
-              className="h-10 p-1 ml-2 text-center rounded shadow"
+              className="h-10 p-1 ml-2 text-center rounded shadow cursor-pointer"
               data-tip="Size Category"
               value={equipment.size}
               onChange={(e) =>

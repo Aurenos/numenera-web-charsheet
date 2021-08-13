@@ -15,5 +15,9 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+select {
+  @apply cursor-pointer;
+}
+
 @import './styles/components.css';
 @import 'tailwindcss/utilities';
